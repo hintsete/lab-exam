@@ -1,0 +1,25 @@
+package equation_one;
+
+public class displayarray {
+    int[] numarray={1,2,3,4,5,1};
+    public static int check(int[] numarray, int target) {
+        int count = 0;
+        for (int i = 0; i < numarray.length; i++) {
+            if (numarray[i] == target) {
+                count++;
+            }
+        }
+        return count;
+
+
+    }
+
+
+
+
+
+
+
+}
+
+
