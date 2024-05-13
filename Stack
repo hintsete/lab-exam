@@ -1,0 +1,41 @@
+package equation_one;
+//push operation
+public class Stack {
+    int top, maxsize;
+    int size = 0;
+    int[] numarray;
+
+    Stack(int size) {
+        maxsize = size;
+        numarray = new int[maxsize];
+        top = -1;
+    }
+
+    void push(int value) {
+        if (top < maxsize - 1) {
+            numarray[++top] = value;
+        } else
+            System.out.println("Stack is full");
+    }
+
+    //pop operation;
+    public int pop() {
+        if (top >= 0) {
+            int data = numarray[top--];
+            size--;
+            return data;
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        Stack numStack = new Stack(5);
+        for (int i = 0; i < numStack.size; i++) {
+            System.out.println(numStack.numarray[i]);
+
+
+        }
+    }
+
+
+}
