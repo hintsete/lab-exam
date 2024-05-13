@@ -1,0 +1,57 @@
+package equation_one;
+
+import static java.io.ObjectInputFilter.merge;
+
+public class mergesort {
+    int[] numarray = {1, 2, 3, 4, 5, 1};
+
+    private static void mergeSorted(int[] numarray) {
+        int inputLength = numarray.length;
+        if (inputLength < 2) {
+            return;
+        }
+        int midIndex = numarray.length / 2;
+        int[] leftHalf = new int[midIndex];
+        int[] rightHalf = new int[inputLength -
+                midIndex];
+        for (int i = 0; i < midIndex; i++) {
+            leftHalf[i - midIndex] = numarray[i];
+        }
+        for (int i = midIndex; i < inputLength; i++) {
+            {
+                rightHalf[i] = numarray[i];
+            }
+            mergeSorted(leftHalf);
+            mergeSorted(rightHalf);
+//Merge
+            merge(numarray, leftHalf, rightHalf);
+        }
+        private static void merge(int[] numarray, int[] leftH,int[] rightH){
+            int leftSize = leftH.length;
+            int rightSize = rightH.length;
+            int i = 0;
+            int j = 0;
+            int k = 0;
+            while (i < leftSize && j < rightSize) {
+                if (leftH[i] <= rightH[j]) {
+                    numarray[k] = leftH[i];
+                    i++;
+                } else {
+                    numarray[k] = rightH[j];
+                }
+                k++;
+            }
+            while (i < leftSize) {
+                numarray[k] = leftH[i];
+                i++;
+                k++;
+            }
+            while (j < rightSize) {
+                numarray[k] = rightH[j];
+                j++;
+                k++;
+            }
+
+        }
+    }
+}
